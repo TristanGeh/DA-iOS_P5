@@ -88,3 +88,4 @@ Exemple:
 ```
 
 > La response est vide mais avec le code HTTP 200 si le transfert a été accepté.
+a
