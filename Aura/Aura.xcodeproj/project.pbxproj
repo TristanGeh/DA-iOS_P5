@@ -19,6 +19,13 @@
 		53D4189D2AC715AA0070ADB1 /* AccountDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4189C2AC715AA0070ADB1 /* AccountDetailViewModel.swift */; };
 		53D4189F2AC717890070ADB1 /* MoneyTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4189E2AC717890070ADB1 /* MoneyTransferViewModel.swift */; };
 		53D418A12AC71B8F0070ADB1 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D418A02AC71B8F0070ADB1 /* View+Extensions.swift */; };
+		E0AB3C3E2B76874A0076A488 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C3D2B76874A0076A488 /* WelcomeView.swift */; };
+		E0AB3C402B795A0D0076A488 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C3F2B795A0D0076A488 /* AuthenticationModel.swift */; };
+		E0AB3C422B796B830076A488 /* AllTransactionsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C412B796B830076A488 /* AllTransactionsViews.swift */; };
+		E0AB3C442B7975D70076A488 /* ServiceLayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C432B7975D70076A488 /* ServiceLayerModel.swift */; };
+		E0AB3C462B799FBA0076A488 /* AccountDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C452B799FBA0076A488 /* AccountDetailModel.swift */; };
+		E0AB3C482B7A166D0076A488 /* AllTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C472B7A166D0076A488 /* AllTransactionViewModel.swift */; };
+		E0AB3C4A2B7A17A70076A488 /* AllTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C492B7A17A70076A488 /* AllTransactionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +42,13 @@
 		53D4189C2AC715AA0070ADB1 /* AccountDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewModel.swift; sourceTree = "<group>"; };
 		53D4189E2AC717890070ADB1 /* MoneyTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransferViewModel.swift; sourceTree = "<group>"; };
 		53D418A02AC71B8F0070ADB1 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		E0AB3C3D2B76874A0076A488 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		E0AB3C3F2B795A0D0076A488 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationModel.swift; path = Aura/Views/AuthenticationModel.swift; sourceTree = SOURCE_ROOT; };
+		E0AB3C412B796B830076A488 /* AllTransactionsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsViews.swift; sourceTree = "<group>"; };
+		E0AB3C432B7975D70076A488 /* ServiceLayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServiceLayerModel.swift; path = Aura/ViewModels/ServiceLayerModel.swift; sourceTree = SOURCE_ROOT; };
+		E0AB3C452B799FBA0076A488 /* AccountDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailModel.swift; sourceTree = "<group>"; };
+		E0AB3C472B7A166D0076A488 /* AllTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionViewModel.swift; sourceTree = "<group>"; };
+		E0AB3C492B7A17A70076A488 /* AllTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +103,12 @@
 		53D418892AC709AD0070ADB1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E0AB3C412B796B830076A488 /* AllTransactionsViews.swift */,
 				53D418902AC70A920070ADB1 /* AuthenticationView.swift */,
 				53D418922AC70AB10070ADB1 /* AccountDetailView.swift */,
+				E0AB3C492B7A17A70076A488 /* AllTransactionsView.swift */,
 				53D418942AC70ABF0070ADB1 /* MoneyTransferView.swift */,
+				E0AB3C3D2B76874A0076A488 /* WelcomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +119,7 @@
 				53D4188C2AC709F40070ADB1 /* AppViewModel.swift */,
 				53D4189A2AC711990070ADB1 /* AuthenticationViewModel.swift */,
 				53D4189C2AC715AA0070ADB1 /* AccountDetailViewModel.swift */,
+				E0AB3C472B7A166D0076A488 /* AllTransactionViewModel.swift */,
 				53D4189E2AC717890070ADB1 /* MoneyTransferViewModel.swift */,
 			);
 			path = ViewModels;
@@ -110,6 +128,9 @@
 		53D4188B2AC709B80070ADB1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E0AB3C3F2B795A0D0076A488 /* AuthenticationModel.swift */,
+				E0AB3C432B7975D70076A488 /* ServiceLayerModel.swift */,
+				E0AB3C452B799FBA0076A488 /* AccountDetailModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,14 +216,21 @@
 			files = (
 				53D4187C2AC7099A0070ADB1 /* AuraApp.swift in Sources */,
 				53D418952AC70ABF0070ADB1 /* MoneyTransferView.swift in Sources */,
+				E0AB3C3E2B76874A0076A488 /* WelcomeView.swift in Sources */,
+				E0AB3C482B7A166D0076A488 /* AllTransactionViewModel.swift in Sources */,
 				53D4189B2AC711990070ADB1 /* AuthenticationViewModel.swift in Sources */,
 				53D4189D2AC715AA0070ADB1 /* AccountDetailViewModel.swift in Sources */,
 				53D418912AC70A920070ADB1 /* AuthenticationView.swift in Sources */,
+				E0AB3C4A2B7A17A70076A488 /* AllTransactionsView.swift in Sources */,
+				E0AB3C422B796B830076A488 /* AllTransactionsViews.swift in Sources */,
+				E0AB3C442B7975D70076A488 /* ServiceLayerModel.swift in Sources */,
 				53D418932AC70AB10070ADB1 /* AccountDetailView.swift in Sources */,
 				53D4189F2AC717890070ADB1 /* MoneyTransferViewModel.swift in Sources */,
 				53D4188D2AC709F40070ADB1 /* AppViewModel.swift in Sources */,
+				E0AB3C402B795A0D0076A488 /* AuthenticationModel.swift in Sources */,
 				53D418A12AC71B8F0070ADB1 /* View+Extensions.swift in Sources */,
 				53D418992AC70FD80070ADB1 /* Color+Extensions.swift in Sources */,
+				E0AB3C462B799FBA0076A488 /* AccountDetailModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

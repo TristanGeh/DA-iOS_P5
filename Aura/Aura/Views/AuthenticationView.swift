@@ -48,7 +48,6 @@ struct AuthenticationView: View {
                             .background(Color(UIColor.secondarySystemBackground))
                             .cornerRadius(8)
                         
-                        VStack {
                             Button(action: {
                                 // Handle authentication logic here
                                 viewModel.login()
@@ -59,8 +58,6 @@ struct AuthenticationView: View {
                                     .padding()
                                     .background(Color.black) // You can also change this to your pastel green color
                                     .cornerRadius(8)
-                        }
-                            NavigationLink(destination: AccountDetailView(viewModel: AccountDetailViewModel()), isActive: $viewModel.isAuthenticated) { EmptyView() }
                         }
                     }
                     .padding(.horizontal, 40)
