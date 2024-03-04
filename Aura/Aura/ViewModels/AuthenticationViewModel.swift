@@ -13,7 +13,7 @@ class AuthenticationViewModel: ObservableObject {
     
     @Published var isAuthenticated: Bool = false
     
-    private var authModel = AuthenticationModel()
+    var authModel = AuthenticationModel()
     
     let onLoginSucceed: (() -> ())
     
@@ -23,10 +23,19 @@ class AuthenticationViewModel: ObservableObject {
     
     func login() {
         guard authModel.isEmailValid(username: username) && authModel.isPasswordFilled(password: password) else {
-                print("Email non valide")
-                return
-            }
-            
-        authModel.authService(username: username, password: password, viewModel: self)
+            print("Email non valide")
+            return
         }
+        
+        authModel.authentication(username: username, password: password) { success in
+            DispatchQueue.main.async {
+                if success {
+                    self.isAuthenticated = true
+                    self.onLoginSucceed()
+                }else {
+                    print("Erreur d'authentification")
+                }
+            }
+        }
+    }
 }

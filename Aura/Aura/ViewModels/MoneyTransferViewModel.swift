@@ -12,10 +12,16 @@ class MoneyTransferViewModel: ObservableObject {
     @Published var amount: String = ""
     @Published var transferMessage: String = ""
     
+    var moneyTransferModel = MoneyTransferModel()
+    
     func sendMoney() {
-        // Logic to send money - for now, we're just setting a success message.
-        // You can later integrate actual logic.
-        if !recipient.isEmpty && !amount.isEmpty {
+        guard let amountDecimal = Decimal(string: amount)else {
+            transferMessage = "Invalid amount"
+            return
+        }
+        
+        if moneyTransferModel.isAmountValid(amount: amountDecimal) && moneyTransferModel.isRecipientValid(recipient: recipient) {
+            moneyTransferModel.moneyTransfer(recipient: recipient, amount: amountDecimal)
             transferMessage = "Successfully transferred \(amount) to \(recipient)"
         } else {
             transferMessage = "Please enter recipient and amount."

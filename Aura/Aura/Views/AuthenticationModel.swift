@@ -18,11 +18,9 @@ class AuthenticationModel {
         return !password.isEmpty
     }
     
-    func authService(username: String, password: String, viewModel: AuthenticationViewModel) {
-        ServiceLayer.fetchAuthToken(username: username, password: password)
-        viewModel.isAuthenticated = true
-        viewModel.onLoginSucceed()
+    func authentication(username: String, password: String, completion: @escaping (Bool) -> Void) {
+        ServiceLayer.fetchAuthToken(username: username, password: password) { success in
+           completion(success)
+        }
     }
-                
-          
 }
