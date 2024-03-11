@@ -19,6 +19,13 @@
 		53D4189D2AC715AA0070ADB1 /* AccountDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4189C2AC715AA0070ADB1 /* AccountDetailViewModel.swift */; };
 		53D4189F2AC717890070ADB1 /* MoneyTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4189E2AC717890070ADB1 /* MoneyTransferViewModel.swift */; };
 		53D418A12AC71B8F0070ADB1 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D418A02AC71B8F0070ADB1 /* View+Extensions.swift */; };
+		E0A339572B9D454B00B1B0D6 /* ServiceLayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A339562B9D454B00B1B0D6 /* ServiceLayerConfiguration.swift */; };
+		E0A339582B9E980F00B1B0D6 /* ServiceLayerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C562B8DA1170076A488 /* ServiceLayerMock.swift */; };
+		E0A3395A2B9E9F5000B1B0D6 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A339592B9E9F5000B1B0D6 /* MockURLSession.swift */; };
+		E0A3395C2B9E9F8800B1B0D6 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A3395B2B9E9F8800B1B0D6 /* MockURLSessionDataTask.swift */; };
+		E0A3395E2B9E9FE200B1B0D6 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A3395D2B9E9FE200B1B0D6 /* URLSessionProtocol.swift */; };
+		E0A339602B9EA00200B1B0D6 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A3395F2B9EA00200B1B0D6 /* URLSessionDataTaskProtocol.swift */; };
+		E0A339632B9ED78800B1B0D6 /* AccountDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = E0A339622B9ED78800B1B0D6 /* AccountDetail.json */; };
 		E0AB3C3E2B76874A0076A488 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C3D2B76874A0076A488 /* WelcomeView.swift */; };
 		E0AB3C402B795A0D0076A488 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C3F2B795A0D0076A488 /* AuthenticationModel.swift */; };
 		E0AB3C422B796B830076A488 /* AllTransactionsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C412B796B830076A488 /* AllTransactionsViews.swift */; };
@@ -28,7 +35,6 @@
 		E0AB3C4C2B7A34760076A488 /* MoneyTransferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C4B2B7A34750076A488 /* MoneyTransferModel.swift */; };
 		E0AB3C522B8DA00D0076A488 /* ServiceLayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C512B8DA00D0076A488 /* ServiceLayerProtocol.swift */; };
 		E0AB3C542B8DA0CC0076A488 /* ServiceLayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C532B8DA0CC0076A488 /* ServiceLayerModel.swift */; };
-		E0AB3C572B8DA1170076A488 /* ServiceLayerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C562B8DA1170076A488 /* ServiceLayerMock.swift */; };
 		E0AB3C6A2B8DC0450076A488 /* AuraServiceLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C4D2B8D9E020076A488 /* AuraServiceLayerTests.swift */; };
 		E0AB3C6E2B8DC6790076A488 /* AuthenticationModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C6D2B8DC6790076A488 /* AuthenticationModelTest.swift */; };
 		E0AB3C712B9576800076A488 /* AuthenticationViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB3C702B9576800076A488 /* AuthenticationViewModelTest.swift */; };
@@ -64,6 +70,12 @@
 		53D4189C2AC715AA0070ADB1 /* AccountDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewModel.swift; sourceTree = "<group>"; };
 		53D4189E2AC717890070ADB1 /* MoneyTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransferViewModel.swift; sourceTree = "<group>"; };
 		53D418A02AC71B8F0070ADB1 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		E0A339562B9D454B00B1B0D6 /* ServiceLayerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayerConfiguration.swift; sourceTree = "<group>"; };
+		E0A339592B9E9F5000B1B0D6 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		E0A3395B2B9E9F8800B1B0D6 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		E0A3395D2B9E9FE200B1B0D6 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		E0A3395F2B9EA00200B1B0D6 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
+		E0A339622B9ED78800B1B0D6 /* AccountDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AccountDetail.json; sourceTree = "<group>"; };
 		E0AB3C3D2B76874A0076A488 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		E0AB3C3F2B795A0D0076A488 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationModel.swift; path = Aura/Views/AuthenticationModel.swift; sourceTree = SOURCE_ROOT; };
 		E0AB3C412B796B830076A488 /* AllTransactionsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsViews.swift; sourceTree = "<group>"; };
@@ -189,11 +201,22 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		E0A339612B9EA01200B1B0D6 /* ServiceLayerProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				E0AB3C512B8DA00D0076A488 /* ServiceLayerProtocol.swift */,
+				E0A3395F2B9EA00200B1B0D6 /* URLSessionDataTaskProtocol.swift */,
+				E0A3395D2B9E9FE200B1B0D6 /* URLSessionProtocol.swift */,
+			);
+			path = ServiceLayerProtocols;
+			sourceTree = "<group>";
+		};
 		E0AB3C502B8D9FED0076A488 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				E0A339612B9EA01200B1B0D6 /* ServiceLayerProtocols */,
 				E0AB3C532B8DA0CC0076A488 /* ServiceLayerModel.swift */,
-				E0AB3C512B8DA00D0076A488 /* ServiceLayerProtocol.swift */,
+				E0A339562B9D454B00B1B0D6 /* ServiceLayerConfiguration.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -202,7 +225,10 @@
 			isa = PBXGroup;
 			children = (
 				E0AB3C4D2B8D9E020076A488 /* AuraServiceLayerTests.swift */,
+				E0A339592B9E9F5000B1B0D6 /* MockURLSession.swift */,
+				E0A3395B2B9E9F8800B1B0D6 /* MockURLSessionDataTask.swift */,
 				E0AB3C562B8DA1170076A488 /* ServiceLayerMock.swift */,
+				E0A339622B9ED78800B1B0D6 /* AccountDetail.json */,
 			);
 			path = ServiceLayerTests;
 			sourceTree = "<group>";
@@ -378,6 +404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0A339632B9ED78800B1B0D6 /* AccountDetail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,10 +415,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0A3395E2B9E9FE200B1B0D6 /* URLSessionProtocol.swift in Sources */,
 				E0AB3C542B8DA0CC0076A488 /* ServiceLayerModel.swift in Sources */,
 				53D4187C2AC7099A0070ADB1 /* AuraApp.swift in Sources */,
 				53D418952AC70ABF0070ADB1 /* MoneyTransferView.swift in Sources */,
-				E0AB3C572B8DA1170076A488 /* ServiceLayerMock.swift in Sources */,
 				E0AB3C3E2B76874A0076A488 /* WelcomeView.swift in Sources */,
 				E0AB3C482B7A166D0076A488 /* AllTransactionViewModel.swift in Sources */,
 				53D4189B2AC711990070ADB1 /* AuthenticationViewModel.swift in Sources */,
@@ -406,7 +433,9 @@
 				E0AB3C4C2B7A34760076A488 /* MoneyTransferModel.swift in Sources */,
 				E0AB3C402B795A0D0076A488 /* AuthenticationModel.swift in Sources */,
 				53D418A12AC71B8F0070ADB1 /* View+Extensions.swift in Sources */,
+				E0A339572B9D454B00B1B0D6 /* ServiceLayerConfiguration.swift in Sources */,
 				53D418992AC70FD80070ADB1 /* Color+Extensions.swift in Sources */,
+				E0A339602B9EA00200B1B0D6 /* URLSessionDataTaskProtocol.swift in Sources */,
 				E0AB3C462B799FBA0076A488 /* AccountDetailModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,12 +447,15 @@
 				E0AB3C802B95B9870076A488 /* MoneyTrasnferViewModelTests.swift in Sources */,
 				E0AB3C752B95876A0076A488 /* MockAuthenticationViewModel.swift in Sources */,
 				E0AB3C7D2B95B5AD0076A488 /* MoneyTransferModelTests.swift in Sources */,
+				E0A3395A2B9E9F5000B1B0D6 /* MockURLSession.swift in Sources */,
 				E0AB3C822B95BA480076A488 /* MockMoneyTransferModel.swift in Sources */,
 				E0AB3C6A2B8DC0450076A488 /* AuraServiceLayerTests.swift in Sources */,
 				E0AB3C712B9576800076A488 /* AuthenticationViewModelTest.swift in Sources */,
 				E0AB3C6E2B8DC6790076A488 /* AuthenticationModelTest.swift in Sources */,
 				E0AB3C732B957CCC0076A488 /* AuthenticationModelMock.swift in Sources */,
+				E0A3395C2B9E9F8800B1B0D6 /* MockURLSessionDataTask.swift in Sources */,
 				E0AB3C792B9588FD0076A488 /* AccountDetailViewModelTests.swift in Sources */,
+				E0A339582B9E980F00B1B0D6 /* ServiceLayerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

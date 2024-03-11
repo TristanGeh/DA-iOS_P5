@@ -7,6 +7,8 @@
 
 import Foundation
 class MoneyTransferModel {
+    var serviceLayer = ServiceLayer()
+    
     func isRecipientValid(recipient: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let phoneRegex = "^\\+33\\s?\\d{9}$"
@@ -20,6 +22,6 @@ class MoneyTransferModel {
     }
     
     func moneyTransfer(recipient: String, amount: Decimal) {
-        ServiceLayer.sendMoneyTransfer(recipient: recipient, amount: amount)
+        serviceLayer.sendMoneyTransfer(recipient: recipient, amount: amount)
     }
 }

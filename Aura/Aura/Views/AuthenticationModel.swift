@@ -7,6 +7,7 @@
 
 import Foundation
 class AuthenticationModel {
+    var serviceLayer = ServiceLayer()
     
     func isEmailValid(username: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -19,7 +20,7 @@ class AuthenticationModel {
     }
     
     func authentication(username: String, password: String, completion: @escaping (Bool) -> Void) {
-        ServiceLayer.fetchAuthToken(username: username, password: password) { success in
+        serviceLayer.fetchAuthToken(username: username, password: password) { success in
            completion(success)
         }
     }

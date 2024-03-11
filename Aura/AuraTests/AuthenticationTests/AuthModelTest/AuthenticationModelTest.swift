@@ -27,7 +27,7 @@ final class AuthenticationModelTests: XCTestCase {
     }
     
     func testAuthenticationSuccessfull() {
-        mockServiceLayer.shouldAuthenticateSuccessfully = true
+        mockServiceLayer.shouldFetchAuthTokenSucceed = true
         
         model.authentication(username: "test@example.com", password: "test123") { success in
             XCTAssertTrue(success)
@@ -35,7 +35,7 @@ final class AuthenticationModelTests: XCTestCase {
     }
     
     func testAuthenticationUnsuccessfull() {
-        mockServiceLayer.shouldAuthenticateSuccessfully = false
+        mockServiceLayer.shouldFetchAuthTokenSucceed = false
         
         model.authentication(username: "test@example.com", password: "test123") { success in
             XCTAssertFalse(success)

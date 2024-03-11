@@ -1,0 +1,7 @@
+{
+    "currentBalance": 1000.00,
+    "transactions": [
+        {"label": "Transaction1", "value": 100.00},
+        {"label": "Transaction2", "value": -50.00}
+    ]
+}

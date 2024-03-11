@@ -21,6 +21,5 @@ class MockMoneyTransferModel: MoneyTransferModel {
     }
 
     override func moneyTransfer(recipient: String, amount: Decimal) {
-        // Simulate money transfer without actual network call
     }
 }

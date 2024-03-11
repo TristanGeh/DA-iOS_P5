@@ -8,12 +8,14 @@
 import Foundation
 
 class AllTransactionViewModel: ObservableObject {
+    var serviceLayer = ServiceLayer()
+    
     @Published var allTransactions: [Transaction] = []
     
     func loadAllTransactions() {
-        ServiceLayer.fetchAccountDetail()
+        serviceLayer.fetchAccountDetail()
         DispatchQueue.main.async {
-            if let accountDetails = ServiceLayer.accountDetails {
+            if let accountDetails = self.serviceLayer.accountDetails {
                 self.allTransactions = accountDetails.transactions
             }
         }

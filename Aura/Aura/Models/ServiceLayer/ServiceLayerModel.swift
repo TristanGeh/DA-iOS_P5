@@ -8,8 +8,16 @@
 import Foundation
 class ServiceLayer: ObservableObject {
     
+    // MARK: - Set variables
+    
+    var session: URLSessionProtocol
+    
+    init(session: URLSessionProtocol = URLSession.shared) {
+        self.session = session
+    }
+    
     static var authToken: String?
-    static var accountDetails: AccountDetail?
+    var accountDetails: AccountDetail?
     
     struct TransferRequestBody: Codable {
         let recipient: String
@@ -17,31 +25,19 @@ class ServiceLayer: ObservableObject {
     }
     
     
-    static func fetchAuthToken(username: String, password: String, completion: @escaping (Bool) -> Void) {
-        guard let auth = URL(string: "http://127.0.0.1:8080/auth") else {
-            DispatchQueue.main.async {
-                completion(false)
-            }
-            return
-        }
-        var request = URLRequest(url: auth)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    // MARK: - API calls
+    
+    
+    func fetchAuthToken(username: String, password: String, completion: @escaping (Bool) -> Void) {
         
+        guard let url = URL(string: ServiceLayerConfiguration.baseUrl + ServiceLayerConfiguration.authEndpoint) else { return }
+        let bodyDict = ["username": username, "password": password]
+        let body = try? JSONSerialization.data(withJSONObject: bodyDict, options: [])
+        let request = ServiceLayerConfiguration.createRequest(url: url, method: "POST", headers: ["Content-Type": "application/json"], body: body)
+
         
-        
-        let body: [String: String] = ["username": username, "password": password]
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: body, options: []) else { 
-            DispatchQueue.main.async {
-                completion(false)
-            }
-            return
-        }
-        request.httpBody = jsonData
-        
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            let treatedData = treatResult(data: data, response: response, error: error)
+        let task = self.session.dataTask(with: request) { data, response, error in
+            let treatedData = ServiceLayerConfiguration.treatResult(data: data, response: response, error: error)
             
             if let resultData = treatedData {
                 guard let responseJSON = try? JSONDecoder().decode([String: String].self, from: resultData),
@@ -52,7 +48,7 @@ class ServiceLayer: ObservableObject {
                     print("Échec du décodage de la réponse")
                     return
                 }
-                authToken = token
+                ServiceLayer.authToken = token
                 DispatchQueue.main.async {
                     completion(true)
                 }
@@ -67,14 +63,14 @@ class ServiceLayer: ObservableObject {
         
     }
     
-    static func fetchAccountDetail() {
-        guard let accountURL = URL(string: "http://127.0.0.1:8080/account"), let authToken = authToken else { return }
-        var request = URLRequest(url: accountURL)
-        request.httpMethod = "GET"
-        request.setValue(authToken, forHTTPHeaderField: "token")
+    func fetchAccountDetail() {
+        guard let url = URL(string: ServiceLayerConfiguration.baseUrl + ServiceLayerConfiguration.accountEndpoint), let authToken = ServiceLayer.authToken else { return }
+        let headers = ["token": "\(authToken)"]
+        let request = ServiceLayerConfiguration.createRequest(url: url, method: "GET", headers: headers)
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            let treatedData = treatResult(data: data, response: response, error: error)
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            let treatedData = ServiceLayerConfiguration.treatResult(data: data, response: response, error: error)
             if let data = treatedData {
                 let responseJSON = try? JSONDecoder().decode(AccountDetail.self, from: data)
                 self.accountDetails = responseJSON
@@ -83,46 +79,16 @@ class ServiceLayer: ObservableObject {
         task.resume()
     }
     
-    static func sendMoneyTransfer(recipient: String, amount: Decimal) {
-        guard let moneyUrl = URL(string: "http://127.0.0.1:8080/account/transfer") else { return }
-        var request = URLRequest(url: moneyUrl)
-        
-        let requestBody = TransferRequestBody(recipient: recipient, amount: amount)
-        let jsonData = try? JSONEncoder().encode(requestBody)
-        
-        request.httpMethod = "POST"
-        request.addValue("application/JSON", forHTTPHeaderField: "Content-Type")
-        request.httpBody = jsonData
+    func sendMoneyTransfer(recipient: String, amount: Decimal) {
+        guard let url = URL(string: ServiceLayerConfiguration.baseUrl + ServiceLayerConfiguration.accountEndpoint + ServiceLayerConfiguration.moneyTransferEndpoint) else { return }
+        let bodyTrans = TransferRequestBody(recipient: recipient, amount: amount)
+        let body = try? JSONEncoder().encode(bodyTrans)
+        let request = ServiceLayerConfiguration.createRequest(url: url, method: "POST", headers: ["Content-Type" : "application/json"], body: body)
         
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            treatResult(data: data, response: response, error: error)
+        let task = session.dataTask(with: request) { data, response, error in
+            ServiceLayerConfiguration.treatResult(data: data, response: response, error: error)
         }
         task.resume()
-    }
-    
-    static func treatResult(data: Data?, response: URLResponse?, error: Error?) -> Data? {
-        if let error = error {
-            print("Erreur lors de la requête : \(error.localizedDescription)")
-            return nil
-        }
-        guard let httpResponse = response as? HTTPURLResponse else {
-            print("La reponse n'est pas une HTTPURLResponse")
-            return nil
-        }
-        if httpResponse.statusCode == 200 {
-            guard let data = data else {
-                print("Échec du décodage de la réponse")
-                return nil
-            }
-            return data
-        }else {
-            print("Status code pas bon: \(httpResponse.statusCode)")
-            if let data = data, let errorBody = String(data: data, encoding: .utf8) {
-                print("Réponse du serveur : \(errorBody)")
-                return nil
-            }
-        }
-        return nil
     }
 }

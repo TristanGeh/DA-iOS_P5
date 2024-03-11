@@ -6,30 +6,36 @@
 //
 
 import Foundation
-class MockServiceLayer: ServiceLayerProtocol {
-    var mockAuthToken: String?
+@testable import Aura
+
+final class MockServiceLayer: ServiceLayerProtocol {
+    var shouldFetchAuthTokenSucceed = true
+    var mockToken = "testToken"
     var mockAccountDetails: AccountDetail?
-    var sendMoneySuccess: Bool = true
-    var shouldAuthenticateSuccessfully: Bool = false
-    var simulatedHttpStatusCode: Int = 200
-    var error: Error?
-    var shouldReturnError: Bool = false
-
+    var shouldSendMoneySucceed = true
+    
+    var mockError: Error?
+    
     func fetchAuthToken(username: String, password: String, completion: @escaping (Bool) -> Void) {
-        completion(shouldAuthenticateSuccessfully)
+        completion(shouldFetchAuthTokenSucceed)
     }
-
+    
     func fetchAccountDetail(completion: @escaping (AccountDetail?, Error?) -> Void) {
-        if let error = self.error {
-            completion(nil, error)
-        } else {
-            completion(mockAccountDetails, nil)
+            if let accountDetails = mockAccountDetails {
+                completion(accountDetails, nil)
+            } else if let error = mockError {
+                completion(nil, error)
+            } else {
+                completion(nil, nil)
+            }
         }
-    }
-
-
+    
     func sendMoneyTransfer(recipient: String, amount: Decimal, completion: @escaping (Bool, Error?) -> Void) {
-        let success = simulatedHttpStatusCode == 200
-        completion(sendMoneySuccess, nil)
+        if shouldSendMoneySucceed {
+            completion(true, nil)
+        } else {
+            let error = NSError(domain: "com.MockServiceLayer", code: 500, userInfo: nil)
+            completion(false, error)
+        }
     }
 }

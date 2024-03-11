@@ -8,15 +8,16 @@
 import Foundation
 
 class AccountDetailViewModel: ObservableObject {
+    var serviceLayer = ServiceLayer()
     
     @Published var recentTransactions: [Transaction] = []
     
     @Published var totalAmount: String = ""
     
     func loadRecentTransactions() {
-        ServiceLayer.fetchAccountDetail()
+        serviceLayer.fetchAccountDetail()
         DispatchQueue.main.async {
-            if let accountDetails = ServiceLayer.accountDetails {
+            if let accountDetails = self.serviceLayer.accountDetails {
                 self.recentTransactions = Array(accountDetails.transactions.prefix(3))
                 self.totalAmount = "\(accountDetails.currentBalance)"
             }
